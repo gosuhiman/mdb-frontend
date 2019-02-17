@@ -9,7 +9,7 @@ references:
     attach_workspace:
       at: *workspace_root
   docker: &docker
-    - image: circleci/11.8.0-stretch-browsers
+    - image: circleci/node:10.15.0-browsers
 
 jobs:
   build:
