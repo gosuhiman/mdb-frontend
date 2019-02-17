@@ -1,0 +1,76 @@
+version: 2
+
+references:
+  js_deps_cache_key: &js_deps_cache_key
+                       v8-dependency-js-deps-{{ checksum "package-lock.json" }}
+  workspace_root: &workspace_root
+                    ~/app
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: *workspace_root
+
+jobs:
+  build:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - *attach_workspace
+      - checkout
+      - restore_cache:
+          keys:
+            - *js_deps_cache_key
+      - run: npm install
+      - save_cache:
+          key: *js_deps_cache_key
+          paths:
+            - node_modules
+      - persist_to_workspace:
+          root: *workspace_root
+          paths:
+            - '*'
+
+  lint:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - *attach_workspace
+      - run:
+          name: Lint
+          command: npm run lint
+
+  test:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - *attach_workspace
+      - run:
+          name: Test
+          command: npm run test
+
+  test-e2e:
+    working_directory: *workspace_root
+    docker:
+      - image: circleci/node:10.15
+    steps:
+      - *attach_workspace
+      - run:
+          name: Test e2e
+          command: npm run e2e
+
+workflows:
+  version: 2
+  cicd:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - test:
+          requires:
+            - build
+      - test-e2e:
+          requires:
+            - build
