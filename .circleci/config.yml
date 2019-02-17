@@ -2,18 +2,19 @@ version: 2
 
 references:
   js_deps_cache_key: &js_deps_cache_key
-                       v8-dependency-js-deps-{{ checksum "package-lock.json" }}
+    v8-dependency-js-deps-{{ checksum "package-lock.json" }}
   workspace_root: &workspace_root
-                    ~/app
+    ~/app
   attach_workspace: &attach_workspace
     attach_workspace:
       at: *workspace_root
+  docker: &docker
+    - image: circleci/11.8.0-stretch-browsers
 
 jobs:
   build:
     working_directory: *workspace_root
-    docker:
-      - image: circleci/node:10.15
+    docker: *docker
     steps:
       - *attach_workspace
       - checkout
@@ -32,8 +33,7 @@ jobs:
 
   lint:
     working_directory: *workspace_root
-    docker:
-      - image: circleci/node:10.15
+    docker: *docker
     steps:
       - *attach_workspace
       - run:
@@ -42,8 +42,7 @@ jobs:
 
   test:
     working_directory: *workspace_root
-    docker:
-      - image: circleci/node:10.15
+    docker: *docker
     steps:
       - *attach_workspace
       - run:
@@ -52,8 +51,7 @@ jobs:
 
   test-e2e:
     working_directory: *workspace_root
-    docker:
-      - image: circleci/node:10.15
+    docker: *docker
     steps:
       - *attach_workspace
       - run:
