@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+body {
+  font-family: 'Merriweather', serif;
+  background: #1D1E1F;
+  color: darken(white, 20%);
+  font-size: 14px;
+}
