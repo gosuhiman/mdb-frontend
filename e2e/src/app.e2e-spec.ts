@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('mdb-frontend');
+    expect(page.getTitleText()).toEqual('movie database');
   });
 
   afterEach(async () => {

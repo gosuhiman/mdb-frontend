@@ -1,14 +1,14 @@
 import {HttpClientModule} from '@angular/common/http';
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
-import {PageMovieListComponent} from '../page-movie-list/page-movie-list.component';
+import {MovieListComponent} from '../movie-list/movie-list.component';
 import {movieRoutes} from '../routes';
 
-import {MovieListComponent} from './movie-list.component';
+import { PageMovieListComponent } from './page-movie-list.component';
 
-describe('MovieListComponent', () => {
-  let component: MovieListComponent;
-  let fixture: ComponentFixture<MovieListComponent>;
+describe('PageMovieListComponent', () => {
+  let component: PageMovieListComponent;
+  let fixture: ComponentFixture<PageMovieListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -21,11 +21,11 @@ describe('MovieListComponent', () => {
         RouterModule.forRoot(movieRoutes),
       ],
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieListComponent);
+    fixture = TestBed.createComponent(PageMovieListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
