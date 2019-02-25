@@ -1,4 +1,8 @@
-<div *ngFor="let movie of movies" class="movie">
-  <div class="poster"><img [src]="movie.posterUrl"></div>
-  <div class="title">{{movie.title}} ({{movie.year}})</div>
-</div>
+<mat-card *ngFor="let movie of movies" class="movie-card">
+  <mat-card-title>{{movie.title}}</mat-card-title>
+  <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
+  <img mat-card-image [src]="movie.posterUrl" [alt]="movie.title">
+  <mat-card-actions>
+    <button mat-button>DETAILS</button>
+  </mat-card-actions>
+</mat-card>

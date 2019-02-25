@@ -1,10 +1,11 @@
 import {HttpClientModule} from '@angular/common/http';
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
+import {MaterialModule} from '../../material/material.module';
 import {MovieListComponent} from '../movie-list/movie-list.component';
 import {movieRoutes} from '../routes';
 
-import { PageMovieListComponent } from './page-movie-list.component';
+import {PageMovieListComponent} from './page-movie-list.component';
 
 describe('PageMovieListComponent', () => {
   let component: PageMovieListComponent;
@@ -17,11 +18,12 @@ describe('PageMovieListComponent', () => {
         PageMovieListComponent
       ],
       imports: [
+        MaterialModule,
         HttpClientModule,
         RouterModule.forRoot(movieRoutes),
       ],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

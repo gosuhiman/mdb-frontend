@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather');
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 body {
+  background: #303030;
   font-family: 'Merriweather', serif;
-  background: #1D1E1F;
-  color: darken(white, 20%);
-  font-size: 14px;
 }
