@@ -1,8 +1,11 @@
 import {HttpClientModule} from '@angular/common/http';
 import {async, TestBed} from '@angular/core/testing';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {AppComponent} from './app.component';
+import {MainModule} from './main/main.module';
+import {MaterialModule} from './material/material.module';
 import {MovieModule} from './movie/movie.module';
 import {appRoutes} from './routes';
 
@@ -14,7 +17,10 @@ describe('AppComponent', () => {
       ],
       imports: [
         BrowserModule,
+        BrowserAnimationsModule,
+        MaterialModule,
         HttpClientModule,
+        MainModule,
         MovieModule,
         RouterModule.forRoot(appRoutes),
       ],

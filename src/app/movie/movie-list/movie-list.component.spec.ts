@@ -1,6 +1,7 @@
 import {HttpClientModule} from '@angular/common/http';
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {RouterModule} from '@angular/router';
+import {MaterialModule} from '../../material/material.module';
 import {PageMovieListComponent} from '../page-movie-list/page-movie-list.component';
 import {movieRoutes} from '../routes';
 
@@ -17,6 +18,7 @@ describe('MovieListComponent', () => {
         PageMovieListComponent
       ],
       imports: [
+        MaterialModule,
         HttpClientModule,
         RouterModule.forRoot(movieRoutes),
       ],
