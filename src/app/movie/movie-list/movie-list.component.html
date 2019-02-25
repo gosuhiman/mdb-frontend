@@ -1,0 +1,4 @@
+<div *ngFor="let movie of movies" class="movie">
+  <div class="poster"><img [src]="movie.posterUrl"></div>
+  <div class="title">{{movie.title}} ({{movie.year}})</div>
+</div>
