@@ -1,4 +1,5 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../../material/material.module';
 
 import {NavbarComponent} from './navbar.component';
@@ -13,6 +14,7 @@ describe('NavbarComponent', () => {
         NavbarComponent
       ],
       imports: [
+        RouterModule,
         MaterialModule
       ],
     })
