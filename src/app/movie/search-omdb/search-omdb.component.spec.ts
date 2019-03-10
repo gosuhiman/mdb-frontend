@@ -5,16 +5,16 @@ import {FormsModule} from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {RouterModule} from '@angular/router';
 import {MaterialModule} from '../../material/material.module';
+import {MovieListComponent} from '../movie-list/movie-list.component';
 import {PageAddComponent} from '../page-add/page-add.component';
 import {PageMovieListComponent} from '../page-movie-list/page-movie-list.component';
 import {movieRoutes} from '../routes';
-import {SearchOmdbComponent} from '../search-omdb/search-omdb.component';
 
-import {MovieListComponent} from './movie-list.component';
+import {SearchOmdbComponent} from './search-omdb.component';
 
-describe('MovieListComponent', () => {
-  let component: MovieListComponent;
-  let fixture: ComponentFixture<MovieListComponent>;
+describe('SearchOmdbComponent', () => {
+  let component: SearchOmdbComponent;
+  let fixture: ComponentFixture<SearchOmdbComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -37,7 +37,7 @@ describe('MovieListComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MovieListComponent);
+    fixture = TestBed.createComponent(SearchOmdbComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

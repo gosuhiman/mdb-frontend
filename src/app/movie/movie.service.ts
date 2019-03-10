@@ -20,4 +20,15 @@ export class MovieService {
     return mapMovies(this.httpClient.get(this.baseUrl + '/movies'));
   }
 
+  search(title: string): Observable<Movie[]> {
+    const mapMovies = map((objs: any) => objs.map(obj => new Movie(obj)));
+    return mapMovies(this.httpClient.get(this.baseUrl + '/search/' + title));
+  }
+
+  add(imdbId: string): Observable<Movie> {
+    const createMovieDto = {imdbId};
+    const mapMovie = map((obj: any) => new Movie(obj));
+    return mapMovie(this.httpClient.post(this.baseUrl + '/movies', createMovieDto));
+  }
+
 }

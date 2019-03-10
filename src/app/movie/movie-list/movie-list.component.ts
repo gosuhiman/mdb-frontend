@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Movie} from '../movie';
-import {MovieService} from '../movie.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -8,13 +7,17 @@ import {MovieService} from '../movie.service';
   styleUrls: ['./movie-list.component.scss']
 })
 export class MovieListComponent implements OnInit {
-  movies: Movie[] = [];
+  @Input() movies: Movie[] = [];
+  @Input() displayAdd = false;
+  @Output() add = new EventEmitter<string>();
 
-  constructor(private movieService: MovieService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.movieService.list()
-      .subscribe((movies: Movie[]) => this.movies = movies);
+  }
+
+  onAddClick(imdbId: string) {
+    this.add.emit(imdbId);
   }
 }
