@@ -11,15 +11,37 @@
 nav {
   display: flex;
   align-items: center;
-  padding: 8px 16px;
+  padding: 0 16px;
+  height: 100%;
 }
 
 img {
-  height: 40px;
+  height: 32px;
 }
 
 h1 {
   margin: 0 8px;
   font-size: 18px;
   color: #fff;
+  font-weight: 300;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0 0 0 32px;
+  padding: 0;
+
+  li {
+    margin-right: 8px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+
+      &:hover {
+        color: darken(#fff, 20%);
+      }
+    }
+  }
 }

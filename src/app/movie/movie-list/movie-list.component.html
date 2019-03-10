@@ -2,7 +2,7 @@
   <mat-card-title>{{movie.title}}</mat-card-title>
   <mat-card-subtitle>{{movie.year}}</mat-card-subtitle>
   <img mat-card-image [src]="movie.posterUrl" [alt]="movie.title">
-  <mat-card-actions>
-    <button mat-button>DETAILS</button>
+  <mat-card-actions *ngIf="displayAdd">
+    <button mat-button (click)="onAddClick(movie.imdbId);">ADD</button>
   </mat-card-actions>
 </mat-card>
